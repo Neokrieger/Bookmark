@@ -2,13 +2,18 @@
 
 <body>
 
-<p>URL    Description</p>
+<ul> <% bookmarks.map(bookmark => { %>
+  <div> url: <%= bookmark.url %>
+        description: <%= bookmark.description %>
+        <% }) %>
+ </div>
+</ul>
 
 
 <form action="/bookmark" method="post">
 
-  <input id="url" type="text" value=""></input>
-  <input id="desc" type="text" value=""></input>
+  <input id="url" type="text" value="" name="url"></input>
+  <input id="desc" type="text" value="" name="desc"></input>
   <input id="submit-button" type="submit" value="Add"></input>
 
   </form>
