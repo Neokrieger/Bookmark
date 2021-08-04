@@ -1,12 +1,12 @@
 describe("Test if title shows", function(){
-  it("Test if title shows", function(){
+  it("GET: Test if title shows", function(){
     cy.visit('/')
     cy.get('#title').should("contain", "Bookmark Keeper")
   })
 })
 
 describe("Manage Bookmark", function(){
-  it("Add new Bookmark", function(){
+  it("ADD: Add new Bookmark", function(){
     cy.visit('/')
     cy.get('#url').type("http://localhost:3000/bookmark")
     cy.get('#desc').type("Amazing bookmark keeper")

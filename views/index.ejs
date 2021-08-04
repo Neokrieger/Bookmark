@@ -2,18 +2,25 @@
 
 <body>
 
-<ul> <% bookmarks.map(bookmark => { %>
-  <div> url: <%= bookmark.url %>
-        description: <%= bookmark.description %>
-        <% }) %>
- </div>
-</ul>
+<div id="bookmarks-list"> <% bookmarks.map((bookmark, index) => { %>
+  <div id="bookmark-<%= index %>">
+    name: <%= bookmark.name %>
+    url: <%= bookmark.url %>
+    description: <%= bookmark.description %>
+   </div>
+   <form action="/bookmark/<%= bookmark.id %>?_method=DELETE" method="post">
+     <input id="bookmark-<%= index %>-delete" type="submit" value="delete">
+   </form>
+   <br>
+    <% }) %>
+</div>
 
 
 <form action="/bookmark" method="post">
 
-  <input id="url" type="text" value="" name="url"></input>
-  <input id="desc" type="text" value="" name="desc"></input>
+  <input id="name" type="text" placeholder="Enter name" name="name"></input>
+  <input id="url" type="text" placeholder="Enter url" name="url"></input>
+  <input id="desc" type="text" placeholder="Enter description" name="desc"></input>
   <input id="submit-button" type="submit" value="Add"></input>
 
   </form>
